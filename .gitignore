@@ -34,5 +34,5 @@ override.tf.json
 terraform.rc
 
 # exclude other var
-project/version.tf
+*/version.tf
 global.hcl
