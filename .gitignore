@@ -1,5 +1,6 @@
 # Local .terraform directories
 **/.terraform/*
+**/.terragrunt-cache/*
 
 # .tfstate files
 *.tfstate
@@ -34,5 +35,5 @@ override.tf.json
 terraform.rc
 
 # exclude other var
-*/version.tf
+*/versions.tf
 global.hcl
