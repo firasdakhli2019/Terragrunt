@@ -36,4 +36,4 @@ terraform.rc
 
 # exclude other var
 */versions.tf
-global.hcl
+secrets.hcl

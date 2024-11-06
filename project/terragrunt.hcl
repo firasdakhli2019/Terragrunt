@@ -1,9 +1,12 @@
 locals {
   vars = read_terragrunt_config(find_in_parent_folders("global.hcl"))
-  subscription_id   = local.vars.locals.subscription_id
-  tenant_id   = local.vars.locals.tenant_id
+  secrets = read_terragrunt_config(find_in_parent_folders("secrets.hcl"))
+  subscription_id   = local.secrets.locals.subscription_id
+  tenant_id   = local.secrets.locals.tenant_id
+  client_id = local.secrets.locals.client_id
+  client_secret = local.secrets.locals.client_secret
   resource_group = local.vars.locals.resource_group
-  backend_name = local.vars.locals.backend_name
+  // backend_name = local.vars.locals.backend_name
 }
 # Generate Azure providers
 generate "versions" {
@@ -24,6 +27,8 @@ generate "versions" {
         features {}
         subscription_id = "${local.subscription_id}"
         tenant_id = "${local.tenant_id}"
+        client_id = "${local.client_id}"
+        client_secret = "${local.client_secret}"
     }
 EOF
 }
